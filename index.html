@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aktivasi Yayasan Hidayatul Amin 513</title>
+    <script src="https://sdk.minepi.com/pi-sdk.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background-color: #f4f4f9; }
+        .wadah { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); max-width: 400px; margin: auto; }
+        .tombol-kuning { 
+            background-color: #ffcc00; 
+            color: #2c1338; 
+            border: none; 
+            padding: 15px 30px; 
+            font-size: 18px; 
+            font-weight: bold; 
+            border-radius: 10px; 
+            cursor: pointer; 
+            width: 100%;
+            margin-top: 20px;
+        }
+        .tombol-kuning:hover { background-color: #e6b800; }
+        h2 { color: #2c1338; }
+        p { color: #666; }
+    </style>
+</head>
+<body>
+
+    <div class="wadah">
+        <img src="https://hidayatulamin.netlify.app/logo.png" alt="Logo" style="width: 100px; margin-bottom: 20px;">
+        <h2>Yayasan Hidayatul Amin</h2>
+        <p>Langkah 10: Uji Coba Pembayaran (Testnet)</p>
+        
+        <button class="tombol-kuning" onclick="bayarTestPi()">
+            ⚡ KIRIM 0.1 TEST-PI
+        </button>
+
+        <p style="font-size: 12px; margin-top: 20px;">
+            Pastikan Bapak membuka ini dari <b>Pi Browser</b>.<br>
+            Niatkan 513 dalam hati saat menekan tombol.
+        </p>
+    </div>
+
+    <script>
+        // 1. Inisialisasi Mesin Pi
+        Pi.init({ version: "2.0", sandbox: true });
+
+        async function bayarTestPi() {
+            try {
+                // 2. Meminta Izin Akses (Scope)
+                const scopes = ['username', 'payments'];
+                const auth = await Pi.authenticate(scopes, (onIncompletePaymentFound) => {
+                    console.log("Ada pembayaran tertunda:", onIncompletePaymentFound);
+                });
+
+                console.log("Terhubung sebagai: " + auth.user.username);
+
+                // 3. Memunculkan Dompet Ungu
+                await Pi.createPayment({
+                    amount: 0.1,
+                    memo: "Donasi Uji Coba Yayasan 513",
+                    metadata: { orderId: "Langkah-10-Final" }
+                }, {
+                    onReadyForServerApproval: (paymentId) => {
+                        console.log("Menunggu persetujuan server...");
+                    },
+                    onReadyForServerCompletion: (paymentId, txid) => {
+                        alert("ALHAMDULILLAH SUKSES!\nTerima kasih Pak Buya.");
+                    },
+                    onCancel: (paymentId) => {
+                        alert("Pembayaran dibatalkan.");
+                    },
+                    onError: (error, payment) => {
+                        alert("Eror: " + error.message);
+                    }
+                });
+            } catch (err) {
+                alert("Sistem sedang sinkronisasi. Silakan klik tombol sekali lagi untuk memunculkan izin.");
+            }
+        }
+    </script>
+
+</body>
+</html>
