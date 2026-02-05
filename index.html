@@ -1,85 +1,1163 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+<script src="https://sdk.minepi.com/pi-sdk.js"></script>
+<script>
+    Pi.init({ version: "2.0", sandbox: false });
+</script>
+<meta property="og:title" content="Yayasan Hidayatul Amin | Pendidikan Islam & AI">
+<meta property="og:description" content="Mencetak Generasi Qur'ani yang Ahli Teknologi dengan Amalan Dzikrullah. Berlokasi di Desa Hutarao Bandar Pulau, Asahan.">
+<meta property="og:image" content="https://hidayatulamin.pi/logo.png"> 
+<meta property="og:url" content="https://hidayatulamin.pi">
+<meta property="og:type" content="website">
+
+<meta name="theme-color" content="#a11f21">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aktivasi Yayasan Hidayatul Amin 513</title>
-    <script src="https://sdk.minepi.com/pi-sdk.js"></script>
+    <title>Yayasan Hidayatul Amin | Portal Pendidikan Islam & AI </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background-color: #f4f4f9; }
-        .wadah { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); max-width: 400px; margin: auto; }
-        .tombol-kuning { 
-            background-color: #ffcc00; 
-            color: #2c1338; 
-            border: none; 
-            padding: 15px 30px; 
-            font-size: 18px; 
-            font-weight: bold; 
-            border-radius: 10px; 
-            cursor: pointer; 
-            width: 100%;
-            margin-top: 20px;
+        body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .bg-dark-blue { background-color: #1e293b; }
+        .bg-red-yamuda { background-color: #a11f21; }
+        .italic-custom { font-style: italic; }
+        
+        /* DROPDOWN MENU STABIL */
+        .nav-item { position: relative; display: inline-block; }
+        .dropdown-content { 
+            display: none; 
+            position: absolute; 
+            background-color: white; 
+            min-width: 220px; 
+            box-shadow: 0px 10px 25px rgba(0,0,0,0.15); 
+            z-index: 100; 
+            border-top: 4px solid #a11f21;
+            border-radius: 0 0 12px 12px;
         }
-        .tombol-kuning:hover { background-color: #e6b800; }
-        h2 { color: #2c1338; }
-        p { color: #666; }
+        .nav-item:hover .dropdown-content { display: block; }
+        .dropdown-content a { 
+            color: #333; padding: 14px 20px; display: block; font-size: 11px; 
+            border-bottom: 1px solid #f8f8f8; font-weight: 700; text-transform: uppercase;
+        }
+        .dropdown-content a:hover { background-color: #fff5f5; color: #a11f21; padding-left: 28px; transition: all 0.3s ease; }
     </style>
 </head>
-<body>
-
-    <div class="wadah">
-        <img src="https://hidayatulamin.netlify.app/logo.png" alt="Logo" style="width: 100px; margin-bottom: 20px;">
-        <h2>Yayasan Hidayatul Amin</h2>
-        <p>Langkah 10: Uji Coba Pembayaran (Testnet)</p>
-        
-        <button class="tombol-kuning" onclick="bayarTestPi()">
-            ⚡ KIRIM 0.1 TEST-PI
-        </button>
-
-        <p style="font-size: 12px; margin-top: 20px;">
-            Pastikan Bapak membuka ini dari <b>Pi Browser</b>.<br>
-            Niatkan 513 dalam hati saat menekan tombol.
-        </p>
+<body id="top" class="bg-slate-50 text-gray-800">
+    
+    <div class="bg-red-yamuda text-white py-2.5 px-6 hidden md:block italic-custom italic">
+        <div class="container mx-auto flex justify-between items-center text-[10px] font-bold tracking-widest uppercase">
+            <span>✓ Pesantren Modern Hidayatul Amin Hutarao - Asahan, Sumut</span>
+            <div class="flex space-x-6 items-center">
+                <a href="#psb" class="hover:text-yellow-400 font-black">Pendaftaran Online</a>
+                <a href="#donasi" class="bg-yellow-400 text-red-900 px-4 py-1.5 rounded-full shadow-lg hover:bg-white transition font-black">❤️ Wakaf Dhuafa</a>
+            </div>
+        </div>
     </div>
 
+    <nav class="bg-white sticky top-0 z-50 shadow-md border-b">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#top" class="flex items-center space-x-3">
+                <img src="logo.png" alt="Logo" class="w-14 h-14 object-contain border p-1 rounded-xl">
+                <div>
+                    <h1 class="font-bold text-slate-800 leading-none text-xl uppercase tracking-tighter">Ponpes Modern Hidayatul Amin</h1>
+                    <p class="text-[9px] text-emerald-600 font-bold uppercase tracking-[0.2em] italic-custom italic">Thariqatullah & AI (Meriset Teknologi Alqur'an) </p>
+                </div>
+            </a>
+            
+            <div class="hidden lg:flex space-x-8 text-[11px] font-bold uppercase tracking-wider text-gray-700 italic-custom italic">
+                <a href="#top" class="hover:text-red-700">HOME</a>
+                
+                <div class="nav-item">
+                    <button class="hover:text-red-700 uppercase">PROFIL ▾</button>
+                    <div class="dropdown-content">
+                        <a href="#profil">Kata Pengantar Buya</a>
+                        <a href="#beasiswa">Visi Misi Dhuafa</a>
+                        <a href="#struktur">Struktur Pengurus</a>
+                        <a href="#sosial">Legalitas Yayasan</a>
+                    </div>
+                </div>
+
+                <div class="nav-item">
+                    <button class="hover:text-red-700 uppercase">BERITA ▾</button>
+                    <div class="dropdown-content">
+                        <a href="#">Warta Pesantren</a>
+                        <a href="#">Pengumuman PSB</a>
+                        <a href="#">Artikel Teknologi</a>
+                    </div>
+                </div>
+
+                <a href="#prestasi" class="hover:text-red-700">PRESTASI</a>
+                <a href="#galeri" class="hover:text-red-700">GALERI</a>
+
+                <div class="nav-item">
+                    <button class="hover:text-red-700 uppercase">JENJANG ▾</button>
+                    <div class="dropdown-content">
+                        <a href="#">Tahfiz Khusus</a>
+                        <a href="#">MTs (Menengah)</a>
+                        <a href="#">MA (Atas)</a>
+                    </div>
+                </div>
+
+                <a href="#kontak-kami" class="hover:text-red-700 font-bold text-red-700 border-l pl-4">KONTAK</a>
+            </div>
+        </div>
+    </nav>
+	
+<header class="relative bg-emerald-950 pt-12 pb-24 md:pt-16 md:pb-32 px-6 min-h-[500px] flex items-start overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="upacara.jpg" alt="Background" class="w-full h-full object-cover opacity-30 scale-105">
+            <div class="absolute inset-0 bg-gradient-to-r from-emerald-950 via-emerald-900/70 to-transparent"></div>
+        </div>
+        
+        <div class="container mx-auto relative z-10">
+            <div class="max-w-4xl mt-4 md:mt-8"> <div class="inline-block bg-gradient-to-r from-red-700 to-red-900 text-white text-[11px] md:text-[13px] font-black px-6 py-2.5 rounded-lg uppercase tracking-[0.3em] mb-4 shadow-2xl border-l-4 border-yellow-400">
+                    IMPLEMENTASI TEKNOLOGI ALQURAN
+                </div>
+
+                <h2 class="text-4xl md:text-8xl font-bold text-white leading-[1.1] mb-6 font-serif italic-custom tracking-tighter">
+                    Mencetak Generasi <br> 
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-300 to-yellow-200">
+                        Beradab & Berilmu
+                    </span>
+                </h2>
+
+                <p class="text-white/70 text-sm md:text-lg mb-8 max-w-2xl leading-relaxed italic-custom">
+                    Menyelaraskan Amalan Dzikrullah dengan Literasi Digital AI & Web3 untuk Masa Depan Umat Islam.
+                </p>
+
+                <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6">
+                    <a href="#donasi" class="bg-yellow-500 text-emerald-950 px-10 py-4 rounded-xl font-black text-xs uppercase tracking-widest hover:bg-white transition-all shadow-xl text-center">
+                        Wakaf Pembangunan
+                    </a>
+                    <a href="#video" class="bg-white/10 backdrop-blur-md text-white border border-white/20 px-10 py-4 rounded-xl font-black text-xs uppercase tracking-widest hover:bg-emerald-800 transition-all text-center">
+                        Dokumentasi Video
+                    </a>
+                </div>
+            </div>
+        </div>
+</header>
+	
+	<section class="py-10 bg-white">
+    <div class="container mx-auto px-6">
+        <div class="bg-gradient-to-br from-red-800 to-red-950 p-10 rounded-[3rem] shadow-2xl relative overflow-hidden">
+            <div class="absolute right-0 bottom-0 opacity-10 text-9xl">"</div>
+            <div class="relative z-10 text-center md:text-left">
+                <p class="text-yellow-400 text-[10px] font-black uppercase tracking-[0.3em] mb-4">Wasiat Pekan Ini</p>
+                <h4 class="text-white font-serif text-2xl md:text-3xl italic leading-relaxed">
+                    "Ilmu tanpa Dzikrullah akan membuat hati gersang, namun Teknologi di tangan ahli Dzikir akan menjadi cahaya bagi umat."
+                </h4>
+                <p class="text-white/60 text-xs mt-6">— Drs. H. SS YML. Buya Ahmad Farki</p>
+            </div>
+        </div>
+    </div>
+    </section>
+	
+<section id="faq" class="py-20 bg-slate-50">
+    <div class="container mx-auto px-6 max-w-4xl">
+        <h3 class="font-serif text-3xl text-center text-emerald-950 mb-12 italic">Paling Sering Ditanyakan</h3>
+        <div class="space-y-4">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                <p class="font-bold text-emerald-900 mb-2">Apakah ada biaya pendaftaran untuk santri dhuafa?</p>
+                <p class="text-sm text-gray-600">Alhamdulillah, melalui program Wakaf & Donasi, santri dhuafa yang lulus seleksi akan mendapatkan beasiswa penuh 100%.</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                <p class="font-bold text-emerald-900 mb-2">Bagaimana cara berdonasi menggunakan Pi Coin?</p>
+                <p class="text-sm text-gray-600">Bapak/Ibu cukup menyalin alamat Wallet Pi kami di bagian Donasi, lakukan transfer via Pi Browser, dan konfirmasi melalui tombol WhatsApp yang tersedia.</p>
+            </div>
+        </div>
+    </div>
+</section>
+	
+    <section class="py-16 bg-white border-b border-slate-100 italic-custom italic">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+                <div><p class="text-4xl font-bold text-red-700 mb-2 font-serif tracking-tighter">100%</p><p class="text-[9px] font-bold uppercase tracking-widest opacity-60">Gratis Dhuafa</p></div>
+                <div><p class="text-4xl font-bold text-emerald-800 mb-2 font-serif tracking-tighter">24 Jam</p><p class="text-[9px] font-bold uppercase tracking-widest opacity-60">Pembinaan</p></div>
+                <div><p class="text-4xl font-bold text-emerald-800 mb-2 font-serif tracking-tighter">THARIQATULLAH</p><p class="text-[9px] font-bold uppercase tracking-widest opacity-60">Dzikrullah</p></div>
+                <div><p class="text-4xl font-bold text-emerald-800 mb-2 font-serif tracking-tighter">AI</p><p class="text-[9px] font-bold uppercase tracking-widest opacity-60">Digital Lab</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="profil" class="py-24 container mx-auto px-6 border-b">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+            <div class="italic-custom italic font-light text-gray-700 space-y-7 text-lg text-justify">
+                <h3 class="font-serif text-4xl text-emerald-950 font-bold not-italic mb-4">Kata Pengantar Pembina</h3>
+                <p>"Segala puji bagi Allah SWT. Kehadiran <strong>Hidayatul Amin</strong> melalui domain <em>hidayatulamin.pi</em> adalah komitmen menyelaraskan spiritualitas dengan kemajuan zaman."</p>
+                <p>"Inti perjuangan kami adalah <strong>Tazkiyatun Nafs</strong>—pembersihan hati—melalui amalan <strong>Dzikrullah melalui Thariqatullah </strong>."</p>
+                <div class="pt-6 border-l-4 border-yellow-500 pl-6 not-italic">
+                    <p class="font-bold text-emerald-900 text-2xl mb-1">Drs. H. SS. YML. Buya Ahmad Farki</p>
+                    <p class="text-xs uppercase tracking-[0.3em] font-bold text-gray-400">Pembina Yayasan</p>
+                </div>
+            </div>
+            
+            <div class="bg-emerald-50 p-10 rounded-[3rem] border border-emerald-100">
+                <h4 class="text-center font-bold text-emerald-950 mb-8 uppercase text-xs tracking-widest italic-custom italic">Metode Unggulan</h4>
+                <div class="space-y-6">
+                    <div class="flex items-center space-x-6 border-b pb-6 border-emerald-200/50">
+                        <span class="text-3xl bg-white p-3 rounded-2xl shadow-sm">📿</span>
+                        <div>
+                            <p class="text-xs font-bold italic uppercase tracking-wider text-emerald-800">Thariqatullah & pondasi 513 </p>
+                            <p class="text-[10px] opacity-60 italic-custom">5 Istiqfar, 1 Alfatihah, 3 Al-Ikhlas</p>
+                        </div>
+                    </div>
+					<div class="flex items-center space-x-6 border-b pb-6 border-emerald-200/50">
+                        <span class="text-3xl bg-white p-3 rounded-2xl shadow-sm">📿</span>
+                        <div>
+                            <p class="text-xs font-bold italic uppercase tracking-wider text-emerald-800">Hafidz & Teknologi Alqur'an</p>
+                            <p class="text-[10px] opacity-60 italic-custom">Implementasi Ayat - ayat Qur'an</p>
+                        </div>
+                    </div>
+					<div class="flex items-center space-x-6">
+                        <span class="text-3xl bg-white p-3 rounded-2xl shadow-sm">🤖</span>
+                        <div>
+                            <p class="text-xs font-bold italic uppercase tracking-wider text-emerald-800">Digital Skill</p>
+                            <p class="text-[10px] opacity-60 italic-custom">Kecerdasan Buatan (AI) & Blockchain</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+	<section id="visi-misi" class="py-20 bg-emerald-950 text-white rounded-[4rem] mx-4 md:mx-10 my-10 overflow-hidden relative">
+    <div class="absolute top-0 right-0 w-64 h-64 bg-emerald-800 rounded-full -mr-32 -mt-32 opacity-20"></div>
+    
+    <div class="container mx-auto px-10 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            
+            <div class="space-y-6">
+                <div class="inline-block px-4 py-1 bg-yellow-500 text-emerald-950 text-[10px] font-black uppercase rounded-full">Visi Utama</div>
+                <h3 class="font-serif text-4xl italic leading-tight">
+                    Menjadi Pusat Keunggulan Pendidikan Islam Berbasis <span class="text-yellow-500">Kecerdasan Buatan</span> dan <span class="text-emerald-300">Tazkiyatun Nafs</span> di Sumatera Utara.
+                </h3>
+                <p class="text-emerald-100/70 italic-custom italic text-sm leading-relaxed">
+                    "Mewujudkan santri yang tidak hanya hafal Al-Qur'an, tapi juga mampu mengendalikan teknologi masa depan demi kemaslahatan umat."
+                </p>
+            </div>
+
+            <div class="space-y-6">
+                <div class="inline-block px-4 py-1 bg-emerald-700 text-white text-[10px] font-black uppercase rounded-full">Misi Kami</div>
+                <ul class="space-y-4">
+                    <li class="flex items-start space-x-4">
+                        <span class="text-yellow-500 font-bold">01.</span>
+                        <p class="text-sm font-medium">Menanamkan amalan Dzikrullah sebagai fondasi akhlak dan ketenangan batin santri.</p>
+                    </li>
+                    <li class="flex items-start space-x-4 border-t border-white/10 pt-4">
+                        <span class="text-yellow-500 font-bold">02.</span>
+                        <p class="text-sm font-medium">Menyelenggarakan pendidikan tahfiz Al-Qur'an dengan metode cepat dan pemahaman makna yang mendalam.</p>
+                    </li>
+                    <li class="flex items-start space-x-4 border-t border-white/10 pt-4">
+                        <span class="text-yellow-500 font-bold">03.</span>
+                        <p class="text-sm font-medium">Membekali santri dengan keahlian teknologi digital, pemrograman AI, dan ekonomi berbasis Blockchain (Pi Network).</p>
+                    </li>
+                    <li class="flex items-start space-x-4 border-t border-white/10 pt-4">
+                        <span class="text-yellow-500 font-bold">04.</span>
+                        <p class="text-sm font-medium">Membangun ekosistem kemandirian ekonomi yayasan melalui dukungan wakaf tunai dan aset digital.</p>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section id="jadwal" class="relative py-24 px-6 overflow-hidden">
+    
+    <div class="absolute inset-0 z-0">
+        <img src="belajar.jpg" alt="Santri Belajar" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-white/80"></div> 
+    </div>
+
+    <div class="container mx-auto max-w-5xl relative z-10">
+        <div class="text-center mb-16">
+            <h3 class="font-serif text-4xl text-emerald-950 font-bold italic">Rutinitas & Kedisiplinan</h3>
+            <p class="text-[10px] text-gray-400 uppercase tracking-[0.3em] font-bold mt-2">Membangun Karakter Generasi </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="space-y-4">
+                <div class="flex items-center p-6 bg-white/80 backdrop-blur-sm rounded-3xl shadow-sm border-l-8 border-yellow-500">
+                    <span class="text-2xl mr-6">🕌</span>
+                    <div>
+					   <p class="text-[10px] font-black text-gray-400 uppercase">04:30 - 06:00</p>
+                       <p class="font-bold text-emerald-950">Shalat Shubuh & Dzikrullah</p>
+                    </div>
+                </div>
+                <div class="flex items-center p-6 bg-white/80 backdrop-blur-sm rounded-3xl shadow-sm border-l-8 border-emerald-600">
+                    <span class="text-2xl mr-6">📖</span>
+                    <div>
+                        <p class="text-[10px] font-black text-gray-400 uppercase">07:30 - 12:00</p>
+                        <p class="font-bold text-emerald-950">Kajian Kitab & Pendidikan Formal</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <div class="flex items-center p-6 bg-white/80 backdrop-blur-sm rounded-3xl shadow-sm border-l-8 border-cyan-600">
+                    <span class="text-2xl mr-6">🤖</span>
+                    <div>
+                        <p class="text-[10px] font-black text-gray-400 uppercase">14:00 - 16:00</p>
+                        <p class="font-bold text-emerald-950">Kelas Literasi Digital & AI</p>
+                    </div>
+                </div>
+                <div class="flex items-center p-6 bg-white/80 backdrop-blur-sm rounded-3xl shadow-sm border-l-8 border-red-700">
+                    <span class="text-2xl mr-6">🌙</span>
+                    <div>
+                        <p class="text-[10px] font-black text-gray-400 uppercase">18:30 - 21:00</p>
+                        <p class="font-bold text-emerald-950">Tahfiz Qur'an & Istirahat Malam</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+           
+		
+	<section id="program" class="py-12 bg-white px-6">
+        <div class="container mx-auto text-center">
+            <h3 class="font-serif text-2xl text-emerald-900 mb-12 italic">4 Pilar Pendidikan Kami</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+                <div class="p-8 bg-slate-50 rounded-3xl border-b-4 border-emerald-600 hover:shadow-lg transition">
+                    <div class="text-3xl mb-3">📿</div>
+                    <h4 class="font-bold text-emerald-800 text-[10px] uppercase mb-2 tracking-widest italic-custom">Manajemen Qalbu (MQ)</h4>
+                    <p class="text-[11px] text-gray-500 italic-custom">Amalan Dzikrullah melalui Thariqatullah .</p>
+                </div>
+                <div class="p-8 bg-slate-50 rounded-3xl border-b-4 border-emerald-600 hover:shadow-lg transition">
+                    <div class="text-3xl mb-3">📖</div>
+                    <h4 class="font-bold text-emerald-800 text-[10px] uppercase mb-2 tracking-widest italic-custom">Tahfiz Al-Qur'an</h4>
+                    <p class="text-[11px] text-gray-500 italic-custom">Hafalan mutqin dengan akhlakul karimah.</p>
+                </div>
+                <div class="p-8 bg-slate-50 rounded-3xl border-b-4 border-emerald-600 hover:shadow-lg transition">
+                    <div class="text-3xl mb-3">🤖</div>
+                    <h4 class="font-bold text-emerald-800 text-[10px] uppercase mb-2 tracking-widest italic-custom">Teknologi AI</h4>
+                    <p class="text-[11px] text-gray-500 italic-custom">Penguasaan Kecerdasan Buatan & Digital Skill.</p>
+                </div>
+                <div class="p-8 bg-slate-50 rounded-3xl border-b-4 border-emerald-600 hover:shadow-lg transition">
+                    <div class="text-3xl mb-3">💰</div>
+                    <h4 class="font-bold text-emerald-800 text-[10px] uppercase mb-2 tracking-widest italic-custom">Crypto & Web3</h4>
+                    <p class="text-[11px] text-gray-500 italic-custom">Ekonomi digital berbasis Blockchain.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+	
+	<section class="py-24 bg-slate-100 italic-custom italic">
+        <div class="container mx-auto px-6 max-w-4xl text-center">
+            <h3 class="font-serif text-3xl text-emerald-950 mb-4 italic">Kegiatan Harian Santri</h3>
+            <p class="text-xs text-gray-500 mb-12 uppercase tracking-widest">Kedisiplinan Spiritual & Intelektual</p>
+            <div class="space-y-4 text-left">
+                <div class="flex justify-between items-center bg-white p-6 rounded-3xl shadow-sm border-l-8 border-emerald-600">
+                    <span class="font-bold text-emerald-900">Sholat Subuh & Dzikir </span>
+                    <span class="bg-emerald-50 text-emerald-700 px-4 py-1.5 rounded-full text-[10px] font-bold uppercase">04:30 - 06:00</span>
+                </div>
+                <div class="flex justify-between items-center bg-white p-6 rounded-3xl shadow-sm border-l-8 border-emerald-600">
+                    <span class="font-bold text-emerald-900">Halaqah Tahfiz Al-Qur'an</span>
+                    <span class="bg-emerald-50 text-emerald-700 px-4 py-1.5 rounded-full text-[10px] font-bold uppercase">08:00 - 10:00</span>
+                </div>
+                <div class="flex justify-between items-center bg-white p-6 rounded-3xl shadow-sm border-l-8 border-red-700">
+                    <span class="font-bold text-slate-800 uppercase tracking-tighter">Workshop AI & Teknologi Digital</span>
+                    <span class="bg-red-50 text-red-700 px-4 py-1.5 rounded-full text-[10px] font-bold uppercase">10:00 - 12:00</span>
+                </div>
+				<div class="flex justify-between items-center bg-white p-6 rounded-3xl shadow-sm border-l-8 border-red-700">
+                    <span class="font-bold text-slate-800 uppercase tracking-tighter">Extrakurikuler</span>
+                    <span class="bg-red-50 text-red-700 px-4 py-1.5 rounded-full text-[10px] font-bold uppercase">14:00 - 15:00</span>
+                </div>
+				<div class="flex justify-between items-center bg-white p-6 rounded-3xl shadow-sm border-l-8 border-emerald-600">
+                    <span class="font-bold text-emerald-900">Majelis Tazkiyatun Nafs</span>
+                    <span class="bg-emerald-50 text-emerald-700 px-4 py-1.5 rounded-full text-[10px] font-bold uppercase">20:00 - 21:30</span>
+                </div>
+            </div>
+        </div>
+    </section>
+	
+	<section id="galeri-tambahan" class="py-12 bg-white px-6">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="space-y-3">
+                    <div class="aspect-video bg-slate-200 rounded-[2rem] overflow-hidden shadow-md">
+                        <img src="kegiatan-1.jpg" alt="Kegiatan" class="w-full h-full object-cover hover:scale-110 transition duration-500">
+                    </div>
+                    <p class="text-[11px] font-bold text-gray-600 italic px-2">Dokumentasi & Galeri</p>
+                </div>
+
+                <div class="space-y-3">
+                    <div class="aspect-video bg-slate-200 rounded-[2rem] overflow-hidden shadow-md">
+                        <img src="kegiatan-2.jpg" alt="Kegiatan" class="w-full h-full object-cover hover:scale-110 transition duration-500">
+                    </div>
+                    <p class="text-[11px] font-bold text-gray-600 italic px-2">Dokumentasi & Galeri</p>
+                </div>
+
+                <div class="space-y-3">
+                    <div class="aspect-video bg-slate-200 rounded-[2rem] overflow-hidden shadow-md">
+                        <img src="kegiatan-3.jpg" alt="Kegiatan" class="w-full h-full object-cover hover:scale-110 transition duration-500">
+                    </div>
+                    <p class="text-[11px] font-bold text-gray-600 italic px-2">Dokumentasi & Galeri</p>
+                </div>
+
+                <div class="space-y-3">
+                    <div class="aspect-video bg-slate-200 rounded-[2rem] overflow-hidden shadow-md">
+                        <img src="kegiatan-4.jpg" alt="Kegiatan" class="w-full h-full object-cover hover:scale-110 transition duration-500">
+                    </div>
+                    <a href="#" class="text-[11px] font-bold text-red-700 italic px-2 flex items-center">
+                        Lihat Semua Dokumentasi <span class="ml-2">→</span>
+                    </a>
+                </div>
+
+                <div class="space-y-3 mt-4">
+                    <div class="aspect-video bg-slate-200 rounded-[2rem] overflow-hidden shadow-md">
+                        <img src="kegiatan-5.jpg" alt="Kegiatan" class="w-full h-full object-cover hover:scale-110 transition duration-500">
+                    </div>
+                    <p class="text-[11px] font-bold text-gray-600 italic px-2">Hidayatul Amin</p>
+                </div>
+
+                </div>
+        </div>
+    </section>
+	
+	<section id="galeri" class="py-24 bg-white px-6">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h3 class="font-serif text-3xl text-emerald-950 mb-4 italic">Dokumentasi & Galeri</h3>
+                <p class="text-[10px] text-gray-400 uppercase tracking-[0.3em] font-bold italic-custom">Melihat Lebih Dekat Perjuangan Kami</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="group relative overflow-hidden rounded-[2rem] bg-slate-200 aspect-[4/5] shadow-lg">
+                    <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/80 to-transparent z-10 opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-end p-8">
+                        <p class="text-white font-bold text-xs uppercase tracking-widest italic-custom">Halaqah Al-Qur'an</p>
+                    </div>
+                    <img src="kegiatan-1.jpg" alt="Dokumentasi 1" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="group relative overflow-hidden rounded-[2rem] bg-slate-200 aspect-[4/5] shadow-lg">
+                    <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/80 to-transparent z-10 opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-end p-8">
+                        <p class="text-white font-bold text-xs uppercase tracking-widest italic-custom">Workshop AI & Digital</p>
+                    </div>
+                    <img src="kegiatan-2.jpg" alt="Dokumentasi 2" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="group relative overflow-hidden rounded-[2rem] bg-slate-200 aspect-[4/5] shadow-lg">
+                    <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/80 to-transparent z-10 opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-end p-8">
+                        <p class="text-white font-bold text-xs uppercase tracking-widest italic-custom">Majelis Dzikir </p>
+                    </div>
+                    <img src="kegiatan-3.jpg" alt="Dokumentasi 3" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="group relative overflow-hidden rounded-[2rem] bg-slate-200 aspect-[4/5] shadow-lg">
+                    <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/80 to-transparent z-10 opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-end p-8">
+                        <p class="text-white font-bold text-xs uppercase tracking-widest italic-custom">Kegiatan Bakti Sosial</p>
+                    </div>
+                    <img src="kegiatan-4.jpg" alt="Dokumentasi 4" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="#" class="text-emerald-700 font-bold text-xs uppercase tracking-widest border-b-2 border-emerald-700 pb-1 italic-custom">Lihat Semua Dokumentasi →</a>
+            </div>
+        </div>
+    </section>
+	    
+	<section id="prestasi" class="py-24 bg-emerald-950 text-white px-6">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-20">
+            <div>
+                <h3 class="font-serif text-3xl mb-8 italic text-emerald-400 italic-custom">Pencapaian</h3>
+                <div class="bg-white/5 p-6 rounded-2xl border-l-8 border-emerald-500">
+                    <p class="font-bold text-lg mb-1">Inovasi AI Dakwah 2026</p>
+                    <p class="text-xs opacity-50 uppercase tracking-widest italic-custom italic">Sains & Digital Santri</p>
+                </div>
+            </div>
+            <div class="flex flex-col justify-center">
+                <h3 class="font-serif text-3xl mb-6 italic text-emerald-400 italic-custom">Jejaring Alumni</h3>
+                <p class="text-lg italic-custom opacity-70 leading-relaxed mb-8">Menjaga kebersihan hati di tengah pesatnya teknologi.</p>
+                <a href="#" class="text-yellow-400 font-bold underline italic-custom uppercase tracking-widest text-xs">Jelajahi Alumni →</a>
+            </div>
+        </div>
+    </section>
+	
+    <section id="psb" class="py-24 bg-emerald-50 px-6">
+        <div class="container mx-auto max-w-3xl">
+            <div class="bg-white p-12 rounded-[3.5rem] shadow-2xl border border-emerald-100 relative overflow-hidden italic-custom italic">
+                <div class="absolute top-0 right-0 bg-red-700 text-white px-6 py-2 rounded-bl-3xl font-bold text-[10px] tracking-widest uppercase">Pendaftaran Santri</div>
+                <h3 class="text-center font-serif text-3xl text-emerald-950 mb-2 italic">Daftar Online</h3>
+                <p class="text-center text-[10px] text-gray-400 uppercase tracking-widest mb-10">Silakan lengkapi formulir di bawah ini</p>
+                <form class="space-y-4">
+                    <input type="text" placeholder="Nama Lengkap Calon Santri" class="w-full p-4 rounded-2xl bg-slate-50 border-0 focus:ring-2 focus:ring-emerald-600 text-sm">
+                    <input type="text" placeholder="Nama Orang Tua / Wali" class="w-full p-4 rounded-2xl bg-slate-50 border-0 focus:ring-2 focus:ring-emerald-600 text-sm">
+                    <input type="tel" placeholder="Nomor WhatsApp Aktif" class="w-full p-4 rounded-2xl bg-slate-50 border-0 focus:ring-2 focus:ring-emerald-600 text-sm">
+                    <select class="w-full p-4 rounded-2xl bg-slate-50 border-0 focus:ring-2 focus:ring-emerald-600 text-sm">
+                        <option>Pilih Jenjang...</option>
+                        <option>MTs (Setingkat SMP)</option>
+                        <option>MA (Setingkat SMA)</option>
+                        <option>Program Tahfiz Khusus</option>
+                    </select>
+                    <button type="button" onclick="window.location.href='https://wa.me/6285213346061'" class="w-full py-5 bg-emerald-700 text-white rounded-2xl font-black shadow-xl hover:bg-emerald-800 transition uppercase tracking-widest text-xs">Kirim Pendaftaran via WhatsApp</button>
+                </form>
+            </div>
+        </div>
+    </section>
+	
+	<div class="bg-white p-8 md:p-12 rounded-[3rem] shadow-2xl border border-emerald-100">
+    <h3 class="font-serif text-3xl text-emerald-950 mb-6 italic">Formulir Pendaftaran</h3>
+    
+    <div class="space-y-5">
+        <div>
+            <label class="text-[10px] font-bold uppercase text-gray-400 ml-4 mb-2 block">Nama Calon Santri</label>
+            <input type="text" id="namaSantri" placeholder="Ketik nama lengkap..." 
+                class="w-full p-4 rounded-2xl bg-slate-50 border border-slate-200 focus:ring-2 focus:ring-emerald-600 focus:outline-none text-sm font-bold">
+        </div>
+
+        <div>
+            <label class="text-[10px] font-bold uppercase text-gray-400 ml-4 mb-2 block">Pilih Program</label>
+            <select id="jenjang" 
+                class="w-full p-4 rounded-2xl bg-slate-50 border border-slate-200 focus:ring-2 focus:ring-emerald-600 focus:outline-none text-sm font-bold appearance-none">
+                <option value="">-- Pilih Program --</option>
+                <option value="MTs">MTs (Setingkat SMP)</option>
+                <option value="MA">MA (Setingkat SMA)</option>
+                <option value="Tahfiz Khusus">Tahfiz Khusus (Al-Qur'an)</option>
+            </select>
+        </div>
+
+        <button type="button" onclick="prosesKeWhatsApp()" 
+            class="w-full py-5 bg-emerald-700 text-white rounded-2xl font-black shadow-lg hover:bg-emerald-800 transition-all uppercase tracking-widest text-xs mt-4">
+            Daftar via WhatsApp Sekarang
+        </button>
+    </div>
+</div>
+
+<script>
+function prosesKeWhatsApp() {
+    // 1. Ambil data dari input
+    const nama = document.getElementById('namaSantri').value;
+    const program = document.getElementById('jenjang').value;
+    const nomorWA = "6285213346061"; // Nomor Bapak
+
+    // 2. Validasi sederhana
+    if (nama === "" || program === "") {
+        alert("Mohon maaf Pak, Nama dan Program harus diisi terlebih dahulu.");
+        return;
+    }
+
+    // 3. Rakit kalimat pesan (Menggunakan encodeURIComponent agar simbol & spasi terbaca WA)
+    const teksPesan = "Assalamualaikum Admin Yayasan Hidayatul Amin," + "\n\n" +
+                      "Saya ingin mendaftarkan calon santri baru:" + "\n" +
+                      "*Nama:* " + nama + "\n" +
+                      "*Program:* " + program + "\n\n" +
+                      "Mohon informasi mengenai prosedur pendaftaran selanjutnya. Terima kasih.";
+
+    const pesanFinal = encodeURIComponent(teksPesan);
+
+    // 4. Buka WhatsApp
+    window.open("https://wa.me/" + nomorWA + "?text=" + pesanFinal, "_blank");
+}
+</script>
+	
+    <section id="struktur" class="py-24 bg-slate-100 italic-custom italic">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h3 class="text-xl font-extrabold text-emerald-950 uppercase tracking-[0.4em] mb-2">Struktur Pengurus Inti</h3>
+            <div class="w-80 h-1 bg-red-700 mx-auto rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <div class="bg-white p-8 rounded-[2.5rem] shadow-md border-t-8 border-red-700 hover:shadow-xl transition duration-300">
+                <div class="text-2xl mb-3">👨‍🏫</div>
+                <p class="text-emerald-700 font-bold mb-1 uppercase text-[10px] tracking-widest">Kepala Pesantren</p>
+                <p class="font-black text-slate-800 text-lg leading-tight">Asni Sitorus, S.Pd.I</p>
+            </div>
+
+            <div class="bg-white p-8 rounded-[2.5rem] shadow-md border-t-8 border-red-700 hover:shadow-xl transition duration-300">
+                <div class="text-2xl mb-3">📝</div>
+                <p class="text-emerald-700 font-bold mb-1 uppercase text-[10px] tracking-widest">Sekretaris</p>
+                <p class="font-black text-slate-800 text-lg leading-tight">Agus Supriyanto, S.Fil</p>
+            </div>
+
+            <div class="bg-white p-8 rounded-[2.5rem] shadow-md border-t-8 border-red-700 hover:shadow-xl transition duration-300">
+                <div class="text-2xl mb-3">💰</div>
+                <p class="text-emerald-700 font-bold mb-1 uppercase text-[10px] tracking-widest">Bendahara</p>
+                <p class="font-black text-slate-800 text-lg leading-tight">Umi Kalsum Sitorus</p>
+            </div>
+
+            <div class="bg-white p-8 rounded-[2.5rem] shadow-md border-t-8 border-emerald-600 hover:shadow-xl transition duration-300">
+                <div class="text-2xl mb-3">📢</div>
+                <p class="text-emerald-700 font-bold mb-1 uppercase text-[10px] tracking-widest">Humas</p>
+                <p class="font-black text-slate-800 text-lg leading-tight">M. Yusuf STR</p>
+            </div>
+
+            <div class="bg-white p-8 rounded-[2.5rem] shadow-md border-t-8 border-emerald-600 hover:shadow-xl transition duration-300">
+                <div class="text-2xl mb-3">🤝</div>
+                <p class="text-emerald-700 font-bold mb-1 uppercase text-[10px] tracking-widest">Koord. Program Sosial</p>
+                <p class="font-black text-slate-800 text-lg leading-tight">Edi Hermanto STR</p>
+            </div>
+
+            <div class="bg-white p-8 rounded-[2.5rem] shadow-md border-t-8 border-emerald-600 hover:shadow-xl transition duration-300">
+                <div class="text-2xl mb-3">📚</div>
+                <p class="text-emerald-700 font-bold mb-1 uppercase text-[10px] tracking-widest">Koord. Pendidikan & Kurikulum</p>
+                <p class="font-black text-slate-800 text-lg leading-tight">Yanuardin, SE. M.E.I</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+ 
+ <section class="py-12 px-6">
+        <div class="container mx-auto max-w-5xl">
+            <div class="bg-white rounded-[2rem] shadow-lg border border-emerald-100 overflow-hidden">
+                <div class="bg-emerald-50 px-8 py-4 flex flex-col md:flex-row justify-between items-center border-b border-emerald-100">
+                    <div class="flex items-center space-x-3 mb-2 md:mb-0">
+                        <span class="text-2xl">🕌</span>
+                        <h5 class="font-bold text-emerald-900 text-sm uppercase tracking-widest">Jadwal Sholat Wilayah Asahan</h5>
+                    </div>
+                    <p id="current-date" class="text-[10px] font-black text-emerald-600 uppercase italic"></p>
+                </div>
+
+                <div class="grid grid-cols-3 md:grid-cols-6 text-center">
+                    <div class="p-4 border-r border-emerald-50">
+                        <p class="text-[9px] text-gray-400 uppercase font-bold mb-1">Subuh</p>
+                        <p class="font-black text-emerald-700 text-lg">05:18</p>
+                    </div>
+                    <div class="p-4 border-r border-emerald-50">
+                        <p class="text-[9px] text-gray-400 uppercase font-bold mb-1">Dzuhur</p>
+                        <p class="font-black text-emerald-700 text-lg">12:38</p>
+                    </div>
+                    <div class="p-4 border-r md:border-r border-emerald-50">
+                        <p class="text-[9px] text-gray-400 uppercase font-bold mb-1">Ashar</p>
+                        <p class="font-black text-emerald-700 text-lg">15:56</p>
+                    </div>
+                    <div class="p-4 border-r border-emerald-50">
+                        <p class="text-[9px] text-gray-400 uppercase font-bold mb-1">Maghrib</p>
+                        <p class="font-black text-red-600 text-lg animate-pulse">18:39</p>
+                    </div>
+                    <div class="p-4 border-r border-emerald-50">
+                        <p class="text-[9px] text-gray-400 uppercase font-bold mb-1">Isya</p>
+                        <p class="font-black text-emerald-700 text-lg">19:49</p>
+                    </div>
+                    <div class="p-4 bg-emerald-900 text-white">
+                        <p class="text-[9px] text-emerald-300 uppercase font-bold mb-1">Imsak</p>
+                        <p class="font-black text-white text-lg">05:08</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-4 text-center">
+                <p class="text-[10px] text-gray-500 italic">"Jangan lupakan amalan **513** setiap selesai menunaikan sholat fardhu."</p>
+            </div>
+        </div>
+    </section>
+
     <script>
-        // 1. Inisialisasi Mesin Pi
+        // Menampilkan Tanggal Hari Ini secara otomatis
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        const today = new Date().toLocaleDateString('id-ID', options);
+        document.getElementById('current-date').innerHTML = today;
+    </script>
+  <section class="pb-12 px-6">
+        <div class="container mx-auto max-w-5xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <div class="bg-gradient-to-br from-emerald-800 to-emerald-950 rounded-[2rem] p-8 text-white shadow-xl relative overflow-hidden">
+                    <div class="relative z-10">
+                        <h6 class="text-yellow-400 font-black text-[10px] uppercase tracking-[0.3em] mb-4">Agenda Puasa Sunnah</h6>
+                        <ul class="space-y-4">
+                            <li class="flex justify-between items-center border-b border-white/10 pb-2">
+                                <span class="text-sm">Puasa Senin & Kamis</span>
+                                <span class="bg-yellow-500 text-emerald-950 text-[9px] font-black px-2 py-1 rounded">RUTIN</span>
+                            </li>
+                            <li class="flex justify-between items-center border-b border-white/10 pb-2">
+                                <span class="text-sm">Ayyamul Bidh (Februari)</span>
+                                <span class="text-sm font-bold">1 - 3 Feb</span>
+                            </li>
+                            <li class="flex justify-between items-center">
+                                <span class="text-sm">Nisfu Sya'ban 1447H</span>
+                                <span class="text-sm font-bold text-orange-300">3 Feb 2026</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <span class="absolute -right-4 -bottom-4 text-8xl opacity-10">🌙</span>
+                </div>
+
+                <div class="bg-white rounded-[2rem] p-8 shadow-lg border border-orange-100 flex flex-col justify-center items-center text-center">
+                    <h6 class="text-orange-600 font-black text-[10px] uppercase tracking-[0.3em] mb-2">Menuju Ramadhan 1447 H</h6>
+                    <div class="flex space-x-4 mb-4">
+                        <div>
+                            <p class="text-3xl font-black text-slate-800">15</p>
+                            <p class="text-[9px] uppercase text-gray-400">Hari Lagi</p>
+                        </div>
+                    </div>
+                    <p class="text-[11px] text-gray-500 italic leading-relaxed">
+                        "Persiapkan diri dan harta terbaik untuk menyambut bulan suci melalui Wakaf di Yayasan Hidayatul Amin."
+                    </p>
+                    <div class="mt-4 bg-orange-50 text-orange-700 text-[10px] font-bold px-4 py-2 rounded-full">
+                        Estimasi: 18 Februari 2026
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+	<section class="py-16 px-6 bg-slate-50">
+        <div class="container mx-auto max-w-5xl text-center mb-10">
+            <h2 class="text-3xl font-bold text-emerald-950 font-serif italic-custom">Perpustakaan Digital Santri</h2>
+            <p class="text-sm text-gray-500 mt-2">Silakan unduh dokumen bermanfaat untuk panduan ibadah harian Anda.</p>
+        </div>
+
+        <div class="container mx-auto max-w-5xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <div class="bg-white rounded-[2.5rem] shadow-xl overflow-hidden border border-emerald-100">
+                    <div class="h-48 bg-emerald-900 flex items-center justify-center p-6 text-center relative">
+                        <div class="relative z-10">
+                            <h4 class="text-yellow-400 font-bold text-xl uppercase tracking-widest">Kalender 2026</h4>
+                            <p class="text-white text-[10px] mt-2 opacity-80 uppercase">Edisi Yayasan Hidayatul Amin</p>
+                        </div>
+                        <span class="absolute text-8xl opacity-10 right-2 bottom-0">📅</span>
+                    </div>
+                    <div class="p-8">
+                        <p class="text-xs text-gray-600 mb-6 leading-relaxed">Jadwal sholat wilayah Asahan, puasa sunnah, dan agenda pesantren dalam satu genggaman.</p>
+                        <a href="kalender-2026.pdf" download class="block text-center bg-emerald-800 text-white py-4 rounded-xl font-black text-[10px] uppercase tracking-[0.2em] hover:bg-emerald-700 transition-all">
+                            📥 Download Kalender (PDF)
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-[2.5rem] shadow-xl overflow-hidden border border-red-100">
+                    <div class="h-48 bg-red-800 flex items-center justify-center p-6 text-center relative">
+                        <div class="relative z-10">
+                            <h4 class="text-white font-bold text-xl uppercase tracking-widest">Buku Saku 513</h4>
+                            <p class="text-white/80 text-[10px] mt-2 uppercase">Panduan Dzikir & Ketenangan Hati</p>
+                        </div>
+                        <span class="absolute text-8xl opacity-10 right-2 bottom-0">📖</span>
+                    </div>
+                    <div class="p-8">
+                        <p class="text-xs text-gray-600 mb-6 leading-relaxed">Penjelasan mendalam tata cara amalan 513 (Istighfar, Al-Fatihah, Al-Ikhlas) untuk santri dan umum.</p>
+                        <a href="bukusaku-513.pdf" download class="block text-center bg-red-700 text-white py-4 rounded-xl font-black text-[10px] uppercase tracking-[0.2em] hover:bg-red-600 transition-all shadow-lg shadow-red-200">
+                            📥 Download Buku Saku (PDF)
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+	
+  <section class="relative -mt-16 z-20 px-6">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <div class="bg-white p-8 rounded-[2.5rem] shadow-xl border-b-4 border-emerald-600 hover:-translate-y-2 transition-all duration-300">
+                    <div class="w-14 h-14 bg-emerald-100 rounded-2xl flex items-center justify-center mb-6">
+                        <span class="text-3xl">📖</span>
+                    </div>
+                    <h4 class="font-serif text-xl font-bold mb-3 italic-custom text-emerald-900">Tarbiyah Al-Qur'an</h4>
+                    <p class="text-xs text-gray-600 leading-relaxed mb-4">Pembinaan karakter santri berbasis Al-Qur'an dan Sunnah, serta pendalaman amalan harian 513 untuk ketenangan hati.</p>
+                    <span class="text-[10px] font-black text-emerald-600 uppercase tracking-widest">Fokus Adab & Akhlak</span>
+                </div>
+
+                <div class="bg-emerald-900 p-8 rounded-[2.5rem] shadow-xl border-b-4 border-yellow-400 hover:-translate-y-2 transition-all duration-300">
+                    <div class="w-14 h-14 bg-emerald-800 rounded-2xl flex items-center justify-center mb-6">
+                        <span class="text-3xl">🤖</span>
+                    </div>
+                    <h4 class="font-serif text-xl font-bold mb-3 italic-custom text-yellow-400">Pusat Literasi AI</h4>
+                    <p class="text-xs text-emerald-100/70 leading-relaxed mb-4">Mempersiapkan santri menguasai Teknologi AI dan Web3 (Pi Network) agar dakwah Islam mewarnai dunia digital masa depan.</p>
+                    <span class="text-[10px] font-black text-yellow-400 uppercase tracking-widest">Generasi Web3 Islam</span>
+                </div>
+
+                <div class="bg-white p-8 rounded-[2.5rem] shadow-xl border-b-4 border-red-600 hover:-translate-y-2 transition-all duration-300">
+                    <div class="w-14 h-14 bg-red-50 rounded-2xl flex items-center justify-center mb-6">
+                        <span class="text-3xl">🌍</span>
+                    </div>
+                    <h4 class="font-serif text-xl font-bold mb-3 italic-custom text-slate-900">Jaringan 60 Surau</h4>
+                    <p class="text-xs text-gray-600 leading-relaxed mb-4">Koordinasi dakwah di puluhan surau wilayah Asahan melalui konten kreatif di channel @serbaserbisurauku.</p>
+                    <span class="text-[10px] font-black text-red-600 uppercase tracking-widest">Dakwah Transformatif</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    
+	<section id="donasi" class="py-28 bg-emerald-900 text-white italic-custom italic text-center">
+        <div class="container mx-auto px-6">
+            <h3 class="text-4xl font-bold mb-10 font-serif italic text-white">Investasi Akhirat Digital</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                
+                <div class="bg-white text-emerald-950 p-10 rounded-[3.5rem] shadow-2xl relative overflow-hidden text-left">
+                    <div class="absolute top-0 right-0 bg-red-700 text-white px-6 py-2 rounded-bl-3xl font-bold text-[9px] tracking-widest uppercase not-italic">QRIS & Bank</div>
+                    
+                    <p class="text-[10px] font-bold uppercase tracking-widest mb-6 opacity-40 text-center">Scan QRIS / Transfer Bank</p>
+                    
+                    <div class="mb-8 flex justify-center">
+                        <div class="w-48 h-48 bg-slate-100 border-4 border-emerald-600 rounded-3xl flex items-center justify-center p-2">
+                            <img src="qris-yayasan.png" alt="Scan QRIS Yayasan" class="w-full h-full object-contain">
+                        </div>
+                    </div>
+
+                    <div class="border-t border-slate-100 pt-6">
+                        <p class="text-[10px] font-bold text-emerald-600 uppercase">Bank BRI (Rekening Sementara)</p>
+                        <p class="text-2xl font-black text-slate-800 tracking-tighter mb-1">529801008571530</p>
+                        <p class="text-xs opacity-60 italic mb-6">a.n. Yayasan Hidayatul Amin</p>
+                        
+                        <a href="https://wa.me/6285213346061?text=Assalamualaikum%20Admin,%20saya%20sudah%20transfer%20donasi%20Rupiah%20via%20BRI." 
+                           class="inline-block w-full py-4 bg-emerald-700 text-white text-center rounded-2xl font-black shadow-lg hover:bg-emerald-800 transition uppercase tracking-widest text-[10px] not-italic">
+                           📩 Konfirmasi Donasi BRI
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-emerald-950 text-white p-10 rounded-[3.5rem] shadow-2xl border border-emerald-800 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-yellow-500 text-emerald-950 px-6 py-2 rounded-bl-3xl font-bold text-[9px] tracking-widest uppercase not-italic">Pi Network Web3</div>
+                    
+                    <p class="text-[10px] font-bold uppercase tracking-widest mb-6 text-yellow-500">Donasi via Pi Coin (Web3)</p>
+                    
+                    <div class="mb-8 flex justify-center">
+                        <div class="w-24 h-24 bg-yellow-500 rounded-full flex items-center justify-center shadow-lg shadow-yellow-500/20">
+                            <span class="text-5xl font-sans font-bold text-emerald-950">π</span>
+                        </div>
+                    </div>
+
+                    <div class="text-center space-y-4">
+                        <p class="text-[10px] opacity-60 uppercase tracking-widest">Alamat Wallet Yayasan:</p>
+                        <div class="bg-black/40 p-5 rounded-2xl border border-white/10">
+                            <p id="piWallet" class="break-all text-[10px] font-mono text-yellow-100 leading-relaxed mb-4">GA3VNCFRQT7OKBEZNBME4A7NESYRFGSGA4FG5BFY6ELRZBNT355FEJMX</p>
+                            <button onclick="copyWallet()" class="text-[9px] bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg transition uppercase font-bold tracking-tighter">
+                                📋 Salin Alamat Wallet Pi
+                            </button>
+                        </div>
+                        <p class="text-[9px] text-gray-400 italic leading-relaxed">Gunakan Pi Browser untuk mendukung pembangunan asrama santri dhuafa.</p>
+                    </div>
+
+                    <div class="mt-8 pt-6 border-t border-white/5">
+                        <a href="https://wa.me/6285213346061?text=Assalamualaikum%20Admin,%20saya%20sudah%20transfer%20donasi%20via%20Pi%20Coin.%0A%0AAlamat%20Pengirim:%20" 
+                           class="inline-block w-full py-4 bg-yellow-500 text-emerald-950 rounded-2xl font-black shadow-lg hover:bg-white transition uppercase tracking-widest text-[10px] not-italic">
+                           📩 Konfirmasi Donasi Pi
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            <p class="mt-12 text-xs opacity-40 italic">Membangun Masa Depan Umat melalui Digitalisasi & Spiritual.</p>
+        </div>
+    </section>
+
+    <script>
+        function copyWallet() {
+            const walletText = "GA3VNCFRQT7OKBEZNBME4A7NESYRFGSGA4FG5BFY6ELRZBNT355FEJMX";
+            navigator.clipboard.writeText(walletText).then(() => {
+                alert("Alamat Wallet Pi berhasil disalin!");
+            });
+        }
+    </script>
+	
+	<section id="progress-pembangunan" class="py-24 bg-white px-6 border-t border-b">
+    <div class="container mx-auto max-w-5xl">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            
+            <div class="relative">
+                <div class="aspect-square bg-slate-200 rounded-[3rem] overflow-hidden shadow-2xl border-8 border-slate-50">
+                    <img src="proyek-asrama.jpg" alt="Pembangunan Asrama" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute -bottom-6 -right-6 bg-yellow-500 text-emerald-950 p-6 rounded-[2rem] shadow-xl">
+                    <p class="text-[10px] font-black uppercase tracking-widest mb-1">Target Selesai</p>
+                    <p class="text-xl font-bold font-serif italic">Ramadhan 2027</p>
+                </div>
+            </div>
+
+            <div class="italic-custom italic">
+                <h3 class="font-serif text-4xl text-emerald-950 font-bold not-italic mb-4">Laporan Pembangunan Asrama Santri</h3>
+                <p class="text-gray-600 mb-8 leading-relaxed">Saat ini kami sedang memfokuskan pembangunan pada Lantai 1 dan Ruang Tahfiz. Dukungan Bapak/Ibu melalui Wakaf Tunai maupun Pi Coin sangat membantu kelancaran proyek ini.</p>
+                
+                <div class="space-y-8">
+                    <div>
+                        <div class="flex justify-between items-end mb-3">
+                            <span class="text-xs font-black uppercase text-emerald-800 tracking-tighter">Pembangunan Tahap 1 (Pondasi & Dinding)</span>
+                            <span class="text-2xl font-black text-emerald-900">65%</span>
+                        </div>
+                        <div class="w-full bg-slate-100 h-5 rounded-full p-1 border border-slate-200 shadow-inner">
+                            <div class="bg-gradient-to-r from-emerald-600 to-emerald-400 h-full rounded-full shadow-md transition-all duration-1000" style="width: 65%"></div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 not-italic">
+                        <div class="bg-emerald-50 p-4 rounded-2xl border border-emerald-100">
+                            <p class="text-[9px] font-bold text-emerald-700 uppercase">Kebutuhan Semen</p>
+                            <p class="text-sm font-black text-emerald-950">500 Sak Lagi</p>
+                        </div>
+                        <div class="bg-emerald-50 p-4 rounded-2xl border border-emerald-100">
+                            <p class="text-[9px] font-bold text-emerald-700 uppercase">Estimasi Biaya</p>
+                            <p class="text-sm font-black text-emerald-950">Rp 150.000.000,-</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-10">
+                    <a href="#donasi" class="inline-block bg-red-700 text-white px-8 py-4 rounded-2xl font-bold hover:bg-red-800 transition shadow-lg text-sm not-italic uppercase tracking-widest">
+                        Ikut Berwakaf Sekarang
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section id="laporan-keuangan" class="py-20 bg-slate-50 px-6">
+    <div class="container mx-auto max-w-5xl">
+        <div class="text-center mb-12">
+            <h3 class="font-serif text-3xl text-emerald-950 font-bold italic">Laporan Transparansi Dana</h3>
+            <p class="text-[10px] text-gray-400 uppercase tracking-widest font-bold mt-2">Update Terakhir: Februari 2026</p>
+        </div>
+
+        <div class="bg-white rounded-[3rem] shadow-xl overflow-hidden border border-slate-100">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left">
+                    <thead class="bg-emerald-900 text-white text-[11px] uppercase tracking-wider">
+                        <tr>
+                            <th class="px-8 py-5">Keterangan Alokasi</th>
+                            <th class="px-8 py-5">Status</th>
+                            <th class="px-8 py-5 text-right">Jumlah (IDR)</th>
+                            <th class="px-8 py-5 text-right">Jumlah (Pi)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-sm italic-custom italic">
+                        <tr class="border-b border-slate-50 hover:bg-slate-50 transition">
+                            <td class="px-8 py-6 font-bold text-emerald-950">Pembelian Semen & Pasir</td>
+                            <td class="px-8 py-6"><span class="bg-emerald-100 text-emerald-700 text-[10px] px-3 py-1 rounded-full font-bold not-italic">SELESAI</span></td>
+                            <td class="px-8 py-6 text-right font-mono">Rp 12.500.000</td>
+                            <td class="px-8 py-6 text-right font-mono text-emerald-600">45.00 Pi</td>
+                        </tr>
+                        <tr class="border-b border-slate-50 hover:bg-slate-50 transition">
+                            <td class="px-8 py-6 font-bold text-emerald-950">Upah Tukang (Minggu 1-4)</td>
+                            <td class="px-8 py-6"><span class="bg-blue-100 text-blue-700 text-[10px] px-3 py-1 rounded-full font-bold not-italic">PROSES</span></td>
+                            <td class="px-8 py-6 text-right font-mono">Rp 8.000.000</td>
+                            <td class="px-8 py-6 text-right font-mono text-emerald-600">12.50 Pi</td>
+                        </tr>
+                        <tr class="bg-slate-50">
+                            <td colspan="2" class="px-8 py-6 font-black text-right text-emerald-950 uppercase tracking-tighter">Total Terdistribusi</td>
+                            <td class="px-8 py-6 text-right font-black text-red-700 font-mono">Rp 20.500.000</td>
+                            <td class="px-8 py-6 text-right font-black text-emerald-700 font-mono">57.50 Pi</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <p class="text-center text-[10px] text-gray-400 mt-8 italic-custom italic">
+            *Laporan lengkap per item dapat diminta melalui Sekretariat Yayasan atau klik tombol WhatsApp Admin.
+        </p>
+    </div>
+</section>	
+
+	<section id="sosial" class="py-16 bg-emerald-50 px-6">
+        <div class="container mx-auto max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-12 italic-custom">
+            <div>
+                <h3 class="font-serif text-2xl text-emerald-900 mb-6 italic">Program Khidmat Sosial</h3>
+                <ul class="space-y-4 text-sm italic-custom text-gray-700">
+                    <li>✔️ Santunan anak yatim & dhuafa</li>
+                    <li>✔️ Bantuan pendidikan anak kurang mampu</li>
+                    <li>✔️ Literasi AI & Teknologi untuk Masyarakat</li>
+                    <li>✔️ Wakaf produktif pengembangan pesantren</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-serif text-2xl text-emerald-900 mb-6 italic">Legalitas Yayasan</h3>
+                <p class="text-sm italic-custom text-gray-600 leading-relaxed bg-white p-6 rounded-2xl border border-emerald-100">
+                    Hidayatul Amin berkomitmen menjalankan seluruh kegiatan sesuai peraturan perundang-undangan NKRI demi transparansi dan akuntabilitas kepada ummat.
+                </p>
+            </div>
+        </div>
+    </section>
+	
+	<section id="mitra" class="py-16 bg-white border-t border-slate-100">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-10">
+            <p class="text-[10px] font-black text-gray-400 uppercase tracking-[0.4em] mb-2">Mitra Strategis & Dukungan Teknologi</p>
+            <div class="w-12 h-1 bg-slate-200 mx-auto rounded-full"></div>
+        </div>
+
+        <div class="flex flex-wrap justify-center items-center gap-10 md:gap-20 opacity-60 grayscale hover:grayscale-0 transition-all duration-700">
+            
+            <div class="flex flex-col items-center group">
+                <img src="pinetwork-logo.png" alt="Pi Network" class="h-10 md:h-12 object-contain group-hover:scale-110 transition">
+                <span class="text-[9px] font-bold mt-3 text-slate-400">PI ECOSYSTEM</span>
+            </div>
+
+            <div class="flex flex-col items-center group">
+                <div class="h-10 md:h-12 flex items-center justify-center italic font-serif font-black text-2xl text-slate-700 group-hover:text-emerald-800 transition">
+                    KEMENAG
+                </div>
+                <span class="text-[9px] font-bold mt-3 text-slate-400">REGULASI</span>
+            </div>
+
+            <div class="flex flex-col items-center group">
+                <div class="h-10 md:h-12 flex items-center justify-center font-black text-2xl text-slate-700 group-hover:text-blue-600 transition">
+                    AI<span class="text-xs">TECH</span>
+                </div>
+                <span class="text-[9px] font-bold mt-3 text-slate-400">TEKNOLOGI</span>
+            </div>
+
+            <div class="flex flex-col items-center group">
+                <div class="h-10 md:h-12 flex items-center justify-center font-bold text-lg text-slate-700 group-hover:text-red-700 transition">
+                    ASAHAN<span class="font-light">PEDULI</span>
+                </div>
+                <span class="text-[9px] font-bold mt-3 text-slate-400">SINERGI LOKAL</span>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section id="donasi" class="py-24 bg-slate-50 px-6">
+    <div class="container mx-auto max-w-4xl">
+        <div class="bg-white rounded-[4rem] shadow-2xl overflow-hidden border border-slate-100">
+            <div class="grid grid-cols-1 md:grid-cols-2">
+                
+                <div class="p-12 bg-emerald-950 text-white">
+                    <h3 class="font-serif text-3xl mb-6 italic">Wakaf Tunai</h3>
+                    <p class="text-sm opacity-70 mb-8 italic-custom">Melalui rekening resmi yayasan:</p>
+                    <div class="p-4 bg-emerald-900/50 rounded-2xl border border-emerald-800">
+                        <p class="text-[10px] uppercase font-black text-emerald-400 mb-1">BRI (Bank Rakyat Indonesia)</p>
+                        <p class="text-xl font-bold tracking-widest">529801008571530</p>
+                        <p class="text-xs mt-1">An. Yayasan Hidayatul Amin</p>
+                    </div>
+                </div>
+
+                <div class="p-12 text-center flex flex-col justify-center items-center">
+                    <img src="pinetwork-logo.png" alt="Pi" class="w-16 mb-4">
+                    <h4 class="font-bold text-emerald-950 mb-2">Donasi Pi Coin</h4>
+                    
+                    <div class="p-4 bg-gray-50 rounded-3xl border-2 border-dashed border-orange-400 mb-4">
+                        <img src="qr-pi.png" alt="Scan Barcode" class="w-32 h-32 mx-auto rounded-lg mb-2">
+                        <code class="text-[8px] break-all bg-white p-1 block border text-gray-500">GA3VNCFRQT7OKBEZNBME4A7NESYRFGSGA4FG5BFY6ELRZBNT355FEJMX</code>
+                    </div>
+
+                    <button onclick="transferPi()" style="background: linear-gradient(135deg, #ffa500 0%, #ff8c00 100%); color: white; padding: 12px 24px; border-radius: 15px; font-weight: 800; width: 100%; border: none; cursor: pointer; box-shadow: 0 4px 10px rgba(255,140,0,0.3);">
+                        KIRIM VIA PI BROWSER
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+    <footer id="kontak-kami" class="bg-dark-blue text-white pt-24 pb-12 px-6 italic-custom italic">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-20 text-center md:text-left">
+            <div>
+                <img src="logo.png" alt="Logo" class="w-16 h-16 mb-6 bg-white p-2 rounded-xl mx-auto md:mx-0">
+                <h4 class="font-bold text-2xl uppercase tracking-tighter">Hidayatul Amin</h4>
+                <p class="text-[9px] opacity-30 uppercase tracking-[0.4em]">Peradaban Qur'ani & AI .</p>
+            </div>
+            <div>
+                <h5 class="text-xs font-bold border-b border-white/10 pb-4 mb-6 uppercase tracking-widest text-red-400">Kontak Kami</h5>
+                <p class="text-sm opacity-60 mb-4">Dusun 1 Desa Hutarao, Kec. Bandar Pulau, Asahan, Sumut</p>
+                <p class="text-lg font-bold">📞 0852-1334-6061</p>
+            </div>
+            <div>
+                <h5 class="text-xs font-bold border-b border-white/10 pb-4 mb-6 uppercase tracking-widest text-red-400">Navigasi</h5>
+                <ul class="text-sm opacity-60 space-y-3">
+                    <li><a href="#top">Beranda</a></li>
+                    <li><a href="#donasi">Donasi Wakaf</a></li>
+                    <li><a href="#galeri">Galeri Kegiatan</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="mt-20 text-center text-[9px] opacity-20 uppercase tracking-[0.5em]">&copy; 2026 Yayasan Hidayatul Amin</div>
+    </footer>
+
+ <div class="bg-emerald-900/50 py-3 mt-8 border-t border-white/5 overflow-hidden">
+    <marquee class="text-[10px] font-bold text-yellow-400 uppercase tracking-[0.2em]">
+        MARHABAN: Selamat Datang di Portal Resmi Yayasan Hidayatul Amin • Mari Bersama Mencetak Generasi Qur'ani Berbasis Digital AI & Thariqatullah • Amalan Utama: 5 Istighfar, 1 Al-Fatihah, 3 Al-Ikhlas (513) • Salurkan Wakaf Terbaik Anda Melalui BRI atau Pi Browser untuk Pembangunan Lab AI Santri • Semoga Menjadi Amal Jariyah yang Terus Mengalir...
+    </marquee>
+  </div>
+   
+    <section id="video" class="py-24 px-6 bg-slate-900 text-white">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-12">
+                <h3 class="font-serif text-4xl font-bold italic text-yellow-400 uppercase">Serba Serbi Surauku</h3>
+                <p class="text-[10px] uppercase tracking-[0.4em] text-gray-400 mt-2 font-black">Dokumentasi Dakwah @serbaserbisurauku</p>
+            </div>
+            
+            <div class="bg-white/5 backdrop-blur-xl p-8 rounded-[2.5rem] border border-white/10 flex flex-col justify-center text-center">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" class="w-20 mx-auto mb-6" alt="YT">
+                    <h4 class="font-bold text-xl mb-4">Channel Resmi</h4>
+                    <p class="text-xs text-gray-400 italic mb-8">Tonton video dokumentasi kegiatan surau - surau di Asahan melalui channel kami.</p>
+                    <a href="https://www.youtube.com/@serbaserbisurauku" target="_blank" class="bg-red-600 text-white py-4 rounded-2xl font-black text-[10px] uppercase tracking-widest hover:scale-105 transition shadow-xl">
+                        Buka di YouTube
+                    </a>
+            </div>
+        </div>
+    </section>
+
+<div class="fixed bottom-6 right-6 z-[9999] group">
+    <span class="absolute right-16 top-3 bg-emerald-800 text-white text-[10px] px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-bold tracking-widest whitespace-nowrap shadow-xl">
+        KONSULTASI PENDAFTARAN & DONASI
+    </span>
+    
+    <a href="https://wa.me/6285213346061?text=Assalamualaikum%20Admin%20Hidayatul%20Amin%2C%20saya%20ingin%20bertanya..." 
+       target="_blank" 
+       class="bg-emerald-600 hover:bg-emerald-500 text-white w-14 h-14 md:w-16 md:h-16 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 border-4 border-white">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+        </svg>
+    </a>
+</div>
+
+<script src="https://sdk.minepi.com/pi-sdk.js"></script>
+<script>
+    // Pastikan Pi SDK dimulai saat halaman dibuka
+    Pi.init({ version: "2.0", sandbox: true });
+
+    async function bayarTestPi() {
+        try {
+            // 1. Meminta Izin Login & Pembayaran
+            const scopes = ['username', 'payments'];
+            const auth = await Pi.authenticate(scopes, (p) => {
+                // Fungsi ini untuk menangani pembayaran yang tertunda
+                console.log("Incomplete payment", p);
+            });
+            
+            // 2. Jika Izin diberikan, Dompet otomatis terbuka
+            await Pi.createPayment({
+                amount: 0.1,
+                memo: "Zakat/Infaq Yayasan 513",
+                metadata: { orderId: "Langkah10" }
+            }, {
+                onReadyForServerApproval: (id) => { 
+                    // Bagian ini sangat penting untuk Langkah 10
+                    console.log("Payment Approved, ID: ", id); 
+                },
+                onReadyForServerCompletion: (id, tx) => { 
+                    alert("ALHAMDULILLAH SUKSES!\nTransaksi: " + tx); 
+                },
+                onCancel: (id) => { alert("Pembayaran Dibatalkan"); },
+                onError: (err) => { alert("Eror: " + err.message); }
+            });
+        } catch (e) {
+            alert("Sistem sedang sinkronisasi. Silakan klik tombol sekali lagi.");
+        }
+    }
+</script>
+
+<script src="https://sdk.minepi.com/pi-sdk.js"></script>
+    <script>
         Pi.init({ version: "2.0", sandbox: true });
 
         async function bayarTestPi() {
             try {
-                // 2. Meminta Izin Akses (Scope)
                 const scopes = ['username', 'payments'];
-                const auth = await Pi.authenticate(scopes, (onIncompletePaymentFound) => {
-                    console.log("Ada pembayaran tertunda:", onIncompletePaymentFound);
-                });
-
-                console.log("Terhubung sebagai: " + auth.user.username);
-
-                // 3. Memunculkan Dompet Ungu
+                const auth = await Pi.authenticate(scopes, (p) => {});
+                
                 await Pi.createPayment({
                     amount: 0.1,
-                    memo: "Donasi Uji Coba Yayasan 513",
-                    metadata: { orderId: "Langkah-10-Final" }
+                    memo: "Zakat/Infaq Yayasan 513",
+                    metadata: { orderId: "Langkah10" }
                 }, {
-                    onReadyForServerApproval: (paymentId) => {
-                        console.log("Menunggu persetujuan server...");
-                    },
-                    onReadyForServerCompletion: (paymentId, txid) => {
-                        alert("ALHAMDULILLAH SUKSES!\nTerima kasih Pak Buya.");
-                    },
-                    onCancel: (paymentId) => {
-                        alert("Pembayaran dibatalkan.");
-                    },
-                    onError: (error, payment) => {
-                        alert("Eror: " + error.message);
-                    }
+                    onReadyForServerApproval: (id) => { console.log("Approved"); },
+                    onReadyForServerCompletion: (id, tx) => { alert("ALHAMDULILLAH SUKSES!"); },
+                    onCancel: (id) => { alert("Dibatalkan"); },
+                    onError: (err) => { alert("Eror: " + err.message); }
                 });
-            } catch (err) {
-                alert("Sistem sedang sinkronisasi. Silakan klik tombol sekali lagi untuk memunculkan izin.");
+            } catch (e) {
+                alert("Silakan klik ulang tombolnya untuk memberikan izin.");
             }
         }
     </script>
-
 </body>
 </html>
