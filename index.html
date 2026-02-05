@@ -1,53 +1,73 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yayasan Hidayatul Amin 513</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://sdk.minepi.com/pi-sdk.js"></script>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background-color: #f4f4f4; }
-        .card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); max-width: 400px; margin: auto; }
-        button { background-color: #ffa500; border: none; color: white; padding: 15px 32px; font-size: 16px; font-weight: bold; border-radius: 10px; cursor: pointer; margin-top: 20px; width: 100%; }
-        button:hover { background-color: #e69500; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; padding: 40px 20px; background-color: #f0f2f5; color: #333; }
+        .container { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); max-width: 450px; margin: auto; }
+        h2 { color: #5e2d8a; margin-bottom: 10px; }
+        p { line-height: 1.6; color: #666; }
+        .btn-donasi { background-color: #ffb100; border: none; color: white; padding: 18px 0; font-size: 18px; font-weight: bold; border-radius: 12px; cursor: pointer; width: 100%; transition: 0.3s; margin-top: 25px; box-shadow: 0 4px 15px rgba(255, 177, 0, 0.3); }
+        .btn-donasi:hover { background-color: #e69f00; transform: translateY(-2px); }
+        .footer { margin-top: 30px; font-size: 12px; color: #aaa; }
     </style>
 </head>
 <body>
-    <div class="card">
-        <h2>Donasi Yayasan 513</h2>
-        <p>Klik tombol di bawah untuk menyelesaikan Langkah 10 melalui Pi Testnet.</p>
-        <button id="btn-pay">⚡ KIRIM 0.1 TEST-PI</button>
-        <p id="status" style="margin-top:20px; color: blue;"></p>
+
+    <div class="container">
+        <h2>Yayasan Hidayatul Amin</h2>
+        <p>Program Zakat & Infaq 513</p>
+        <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+        <p>Klik tombol di bawah untuk menyelesaikan <strong>Langkah 10</strong> melalui Pi Testnet.</p>
+        
+        <button id="btn-pay" class="btn-donasi">⚡ KIRIM 0.1 TEST-PI</button>
+        
+        <div id="status-box" style="margin-top: 20px; font-weight: bold; color: #28a745;"></div>
     </div>
 
-   const Pi = window.Pi;
-// Kita buat versi 1.5 dan sandbox false agar langsung 'Live'
-Pi.init({ version: "1.5", sandbox: false });
+    <div class="footer">
+        &copy; 2026 Yayasan Hidayatul Amin 513 - Pi Network Developer
+    </div>
 
-async function createPayment() {
-    try {
-        // Langsung panggil pembayaran tanpa cek username dulu
-        const payment = await Pi.createPayment({
-            amount: 0.1,
-            memo: "Zakat/Infaq Langkah 10 Yayasan 513",
-            metadata: { type: "testnet_setup" },
-        }, {
-            onReadyForServerApproval: (paymentId) => { 
-                console.log("Approved"); 
-            },
-            onReadyForServerCompletion: (paymentId, txid) => { 
-                alert("Alhamdulillah Sukses! TXID: " + txid);
-            },
-            onCancel: (paymentId) => { console.log("Dibatalkan"); },
-            onError: (error, payment) => { console.error(error); },
-        });
-    } catch (err) {
-        // Jika masih error, berarti masalah koneksi Pi Browser
-        alert("Sistem sedang sinkronisasi, mohon refresh halaman");
-    }
-}
+    <script>
+        // Inisialisasi SDK Pi
+        const Pi = window.Pi;
+        // Sandbox false karena kita sudah mendaftarkan URL di portal
+        Pi.init({ version: "1.5", sandbox: false });
 
-document.getElementById('btn-pay').addEventListener('click', createPayment);
+        async function jalankanPembayaran() {
+            try {
+                const payment = await Pi.createPayment({
+                    amount: 0.1,
+                    memo: "Donasi Langkah 10 Yayasan 513",
+                    metadata: { purpose: "Langkah 10 Hijau" },
+                }, {
+                    onReadyForServerApproval: (paymentId) => {
+                        console.log("Menunggu persetujuan server...");
+                    },
+                    onReadyForServerCompletion: (paymentId, txid) => {
+                        document.getElementById('status-box').innerText = "Alhamdulillah! Transaksi Sukses. TXID: " + txid;
+                        alert("Sukses! Silakan cek Checklist Langkah 10 Anda.");
+                    },
+                    onCancel: (paymentId) => {
+                        console.log("Pembayaran dibatalkan oleh pengguna.");
+                    },
+                    onError: (error, payment) => {
+                        console.error("Terjadi kesalahan:", error);
+                        alert("Terjadi gangguan koneksi, silakan coba lagi.");
+                    },
+                });
+            } catch (err) {
+                // Pesan ini hanya muncul jika dibuka di luar Pi Browser
+                alert("Mohon akses melalui Pi Browser agar dapat melakukan transaksi.");
+            }
+        }
+
+        // Pasang fungsi ke tombol
+        document.getElementById('btn-pay').addEventListener('click', jalankanPembayaran);
+    </script>
 </body>
 </html>
-
-
