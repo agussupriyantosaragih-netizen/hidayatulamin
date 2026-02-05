@@ -19,31 +19,35 @@
         <p id="status" style="margin-top:20px; color: blue;"></p>
     </div>
 
-    <script>
-        const Pi = window.Pi;
-        Pi.init({ version: "1.5", sandbox: false });
+   const Pi = window.Pi;
+// Kita buat versi 1.5 dan sandbox false agar langsung 'Live'
+Pi.init({ version: "1.5", sandbox: false });
 
-        async function createPayment() {
-            try {
-                const payment = await Pi.createPayment({
-                    amount: 0.1,
-                    memo: "Donasi Langkah 10 Yayasan 513",
-                    metadata: { type: "testnet_setup" },
-                }, {
-                    onReadyForServerApproval: (paymentId) => { console.log("Approved"); },
-                    onReadyForServerCompletion: (paymentId, txid) => { 
-                        document.getElementById('status').innerText = "Sukses! TXID: " + txid;
-                    },
-                    onCancel: (paymentId) => { console.log("Cancelled"); },
-                    onError: (error, payment) => { console.error(error); },
-                });
-            } catch (err) {
-                alert("Mohon buka melalui Pi Browser!");
-            }
-        }
+async function createPayment() {
+    try {
+        // Langsung panggil pembayaran tanpa cek username dulu
+        const payment = await Pi.createPayment({
+            amount: 0.1,
+            memo: "Zakat/Infaq Langkah 10 Yayasan 513",
+            metadata: { type: "testnet_setup" },
+        }, {
+            onReadyForServerApproval: (paymentId) => { 
+                console.log("Approved"); 
+            },
+            onReadyForServerCompletion: (paymentId, txid) => { 
+                alert("Alhamdulillah Sukses! TXID: " + txid);
+            },
+            onCancel: (paymentId) => { console.log("Dibatalkan"); },
+            onError: (error, payment) => { console.error(error); },
+        });
+    } catch (err) {
+        // Jika masih error, berarti masalah koneksi Pi Browser
+        alert("Sistem sedang sinkronisasi, mohon refresh halaman");
+    }
+}
 
-        document.getElementById('btn-pay').addEventListener('click', createPayment);
-    </script>
+document.getElementById('btn-pay').addEventListener('click', createPayment);
 </body>
 </html>
+
 
